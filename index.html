@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html ⚡ lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1"
+    />
+    <link rel="canonical" href="https://bajialeduchang.com/" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style amp-custom>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      body {
+        overflow-x: hidden;
+        font-family: Roboto;
+      }
+      .header {
+        width: 100%;
+        background-color: #efefef;
+        min-height: 68px;
+      }
+      .header-container {
+        max-width: 1410px;
+        padding: 10px 15px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .container {
+        max-width: 1410px;
+        padding: 0px 15px;
+        margin: 0 auto;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .text-logo {
+        font-size: 24px;
+        margin-left: 10px;
+      }
+      .link-header {
+        position: relative;
+        color: black;
+        font-weight: 600;
+      }
+      .link-header::after {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        content: "";
+        width: 0;
+        height: 3px;
+        background-color: #4db2ec;
+        transition: all 0.5s ease;
+      }
+      .link-header:hover::after {
+        width: 100%;
+      }
+      .languages {
+        position: relative;
+        padding: 10px 0;
+      }
+      .languages::after {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        content: "";
+        background-color: #d33;
+        height: 2px;
+        width: 0;
+        transition: all 0.5s ease;
+      }
+      .languages:hover::after {
+        width: 100%;
+      }
+      .modal-lenguages {
+        position: absolute;
+        z-index: 2;
+        left: -12px;
+        top: 40px;
+        /* border: 1px solid rgb(115, 108, 108); */
+        box-shadow: -1px 1px 10px 0px rgba(147, 136, 136, 0.75);
+        -webkit-box-shadow: -1px 1px 10px 0px rgba(147, 136, 136, 0.75);
+        -moz-box-shadow: -1px 1px 10px 0px rgba(147, 136, 136, 0.75);
+        width: 120px;
+        padding-left: 20px;
+        padding-top: 20px;
+        background-color: white;
+        display: none;
+      }
+      .modal-lenguages li {
+        margin-bottom: 10px;
+        list-style: none;
+      }
+      .modal-lenguages li a {
+        display: block;
+      }
+      .languages:hover .modal-lenguages {
+        display: block;
+      }
+      .burger {
+        display: flex;
+        flex-direction: column;
+        gap: 8px 0;
+        display: none;
+      }
+      .burger-line {
+        width: 35px;
+        height: 3px;
+        background-color: black;
+      }
+      .top-line {
+        width: 20px;
+      }
+      .columns-link {
+        color: #4db2ec;
+      }
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background: #365465;
+        padding: 40px 50px;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        z-index: 6;
+      }
+      .mobile-menu:target {
+        transform: translateX(0%);
+      }
+      .show-menu {
+        transform: translateX(0%);
+      }
+      .closest {
+        position: absolute;
+        top: 20px;
+        right: 50px;
+      }
+      /* main ===================================================================================*/
+      .main-wrapper {
+        margin: 10px auto;
+        max-width: 1100px;
+        padding: 0 16px;
+        color: #c3c3c3;
+        font-size: 14px;
+      }
+      .link-a {
+        color: #c3c3c3;
+        transition: all 0.3s ease;
+      }
+      .link-a:hover {
+        color: black;
+      }
+      .main-title {
+        font-size: 38px;
+        color: black;
+        margin-top: 20px;
+        font-weight: 400;
+      }
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+      .another-list {
+        position: relative;
+        margin-left: 15px;
+        list-style: none;
+      }
+      .columns-link {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+      .columns-link:hover {
+        text-decoration: underline;
+        color: #4db2ec;
+      }
+      .columns-link::marker {
+        color: black;
+      }
+
+      .another-list::before {
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 4px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 50%;
+      }
+      .sqea-links {
+        position: relative;
+        list-style-type: none;
+        margin-left: 40px;
+      }
+      .sqea-links::before {
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: 51%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 5px;
+        background-color: black;
+      }
+      .right-block {
+        width: 50%;
+      }
+      .text-img {
+        margin-bottom: 25px;
+        display: flex;
+        align-items: flex-start;
+        gap: 0 15px;
+        color: black;
+        font-size: 18px;
+      }
+      .big-text {
+        list-style: none;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        color: black;
+        font-weight: 500;
+        font-size: 26px;
+      }
+      .color-line-wrapper {
+        text-align: center;
+        margin-bottom: 120px;
+      }
+      .color-line-title {
+        font-size: 60px;
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+      .color-line {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 20px;
+        width: 90%;
+        padding: 10px;
+        cursor: pointer;
+        margin: 0 auto;
+      }
+      .orange {
+        background-color: #fcb900;
+      }
+      .red {
+        background-color: #cf2e2e;
+      }
+      .color-link {
+        width: 100%;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .color-line:hover .color-link {
+        text-decoration: underline;
+      }
+      .many-text-wrapper {
+        margin: 100px auto 0 auto;
+        max-width: 1060px;
+      }
+      .many-text-paragraph {
+        line-height: 30px;
+      }
+      .many-text-title {
+        font-size: 26px;
+        margin: 30px 0;
+        font-weight: 400;
+      }
+      .number-list {
+        margin-left: 15px;
+        list-style-position: outside;
+        padding-left: 15px;
+        margin-bottom: 15px;
+      }
+      .listt {
+        margin-left: 15px;
+        padding-left: 10px;
+        margin-bottom: 15px;
+      }
+      .blue-title {
+        font-size: 36px;
+        color: #4db2ec;
+        text-align: center;
+        margin: 30px 0;
+        font-weight: 400;
+        font-style: italic;
+        line-height: 55px;
+      }
+      /* footer====================================================================================================== */
+      .footer {
+        background-color: #efefef;
+      }
+      .footer-container {
+        max-width: 1410px;
+        padding: 50px 10px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-navigation {
+        display: flex;
+        gap: 0 50px;
+      }
+      .footer-navigation a {
+        transition: all 0.5s ease;
+      }
+      .footer-navigation a:hover {
+        color: #d33;
+      }
+      .footer-navigation li {
+        list-style: none;
+      }
+      .last-block {
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+      }
+      .networks-images {
+        width: 17px;
+        height: 17px;
+      }
+      .social-networks-container {
+        display: flex;
+        gap: 0 15px;
+      }
+      .arrow-top {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #c3c0c0;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+        z-index: 5;
+      }
+      @media (max-width: 870px) {
+        .footer-container {
+          flex-direction: column;
+          gap: 30px 0;
+        }
+        .footer-navigation {
+          gap: 20px 10px;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      @media (max-width: 740px) {
+        .two-columns {
+          flex-direction: column;
+        }
+        .right-block {
+          width: 100%;
+        }
+        .margin {
+          margin: 50px 0;
+        }
+      }
+      @media (max-width: 640px) {
+        .link-header {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+        .main-title {
+          font-size: 28px;
+        }
+        .blue-title {
+          font-size: 22px;
+        }
+        .last-block {
+          flex-direction: column;
+          gap: 15px 0;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      @media (max-width: 500px) {
+        .big-text {
+          font-size: 22px;
+        }
+        .color-line-title {
+          margin-top: 40px;
+          font-size: 54px;
+        }
+        .color-line-wrapper {
+          margin-bottom: 0px;
+        }
+        .many-text-wrapper {
+          margin-top: 40px;
+        }
+        .color-link {
+          font-size: 16px;
+        }
+      }
+    </style>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    <a href="#top-header" class="arrow-top" style="border-radius: 50%">
+      <img
+        src="./images/icons8-стрелка-вверх-20.png"
+        alt=""
+        class="aroow-img"
+      />
+    </a>
+    <div class="mobile-menu" id="mobile-menu">
+      <a
+        href="https://bajialeduchang.com/baccarat-calculator/"
+        style="color: white; margin-top: 25px; font-size: 24px"
+        >百家樂期望值</a
+      >
+      <a
+        href="https://bajialeduchang.com/baccarat-calculator/"
+        style="color: white; margin-top: 25px; font-size: 24px"
+        >术语表</a
+      >
+      <a
+        href="https://bajialeduchang.com/baccarat-calculator/"
+        style="color: white; margin-top: 25px; font-size: 24px"
+        >边注指南</a
+      >
+      <a
+        href="https://bajialeduchang.com/baccarat-calculator/"
+        style="color: white; margin-top: 25px; font-size: 24px"
+        >如何玩百家乐</a
+      >
+
+      <a
+        href="#top-header"
+        style="color: white; font-size: 30px"
+        class="closest"
+        >X</a
+      >
+    </div>
+    <header class="header" id="top-header">
+      <div class="header-container">
+        <a href="#mobile-menu" class="burger">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line top-line"></span>
+        </a>
+        <a href="">
+          <span class="logo">
+            <svg
+              class=""
+              width="22"
+              height="22"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 48C20.7603 48 17.6171 47.3654 14.6579 46.1138C11.8 44.905 9.23335 43.1745 7.02942 40.9706C4.82548 38.7666 3.09504 36.2 1.88622 33.3421C0.634629 30.3829 0 27.2398 0 24C0 20.7603 0.634629 17.6171 1.88622 14.658C3.09504 11.8 4.82548 9.23341 7.02942 7.02947C9.23341 4.82548 11.8 3.09504 14.6579 1.88628C17.6171 0.634628 20.7603 0 24 0C27.2398 0 30.3829 0.634628 33.342 1.88628C36.2 3.0951 38.7666 4.82554 40.9706 7.02947C43.1745 9.23341 44.905 11.8 46.1138 14.658C47.3654 17.6171 48 20.7603 48 24C48 27.2398 47.3654 30.3829 46.1138 33.3421C44.905 36.2001 43.1745 38.7667 40.9706 40.9706C38.7666 43.1745 36.2 44.905 33.342 46.1138C30.3829 47.3654 27.2397 48 24 48Z"
+                fill="#EFC734"
+              ></path>
+              <path
+                d="M3.42124 24.0001C3.42124 23.68 3.42961 23.3618 3.44421 23.0453L1.26252 22.9895C1.24786 23.3247 1.23901 23.6614 1.23901 24.0001C1.23901 24.3389 1.24786 24.6754 1.26252 25.0106L3.44421 24.9549C3.42967 24.6385 3.42124 24.3202 3.42124 24.0001Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M23.9347 3.48667C24.2548 3.48667 24.573 3.49504 24.8895 3.50964L24.9453 1.32801C24.6101 1.31323 24.2734 1.30444 23.9347 1.30444C23.5959 1.30444 23.2593 1.31323 22.9241 1.32801L22.9798 3.50964C23.2964 3.49504 23.6145 3.48667 23.9347 3.48667Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M20.2201 3.8245L20.0017 1.64482C10.6195 3.28419 3.21875 10.6849 1.57944 20.0672L3.75911 20.2856C5.29069 11.9466 11.8812 5.35619 20.2201 3.8245Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M23.9347 5.17964C13.5405 5.17964 5.11429 13.6059 5.11429 24C5.11429 34.3943 13.5405 42.8204 23.9347 42.8204C34.3289 42.8204 42.7551 34.3943 42.7551 24C42.7551 13.6059 34.3288 5.17964 23.9347 5.17964Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M44.1102 20.2856L46.2899 20.0672C44.6506 10.6849 37.2499 3.28419 27.8676 1.64482L27.6492 3.8245C35.9881 5.35619 42.5786 11.9466 44.1102 20.2856Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M46.6068 22.9894L44.4251 23.0452C44.4397 23.3617 44.4481 23.68 44.4481 24C44.4481 24.3201 44.4397 24.6384 44.4251 24.9549L46.6068 25.0105C46.6215 24.6754 46.6303 24.3388 46.6303 24C46.6303 23.6614 46.6214 23.3247 46.6068 22.9894Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M23.9347 44.5135C23.6145 44.5135 23.2964 44.5051 22.9798 44.4905L22.9241 46.6721C23.2593 46.6868 23.5959 46.6957 23.9347 46.6957C24.2734 46.6957 24.6101 46.6868 24.9453 46.6721L24.8895 44.4905C24.573 44.5051 24.2547 44.5135 23.9347 44.5135Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M27.6492 44.1756L27.8676 46.3554C37.2498 44.7159 44.6506 37.3152 46.2899 27.933L44.1102 27.7146C42.5786 36.0536 35.9881 42.6439 27.6492 44.1756Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M3.75911 27.7146L1.57944 27.933C3.21875 37.3152 10.6195 44.7159 20.0017 46.3554L20.2201 44.1756C11.8812 42.6439 5.29069 36.0536 3.75911 27.7146Z"
+                fill="#C9362A"
+              ></path>
+              <path
+                d="M38.6334 23.6232C38.9589 25.6172 38.6707 27.6343 37.7985 29.4559C35.6176 34.0106 30.3638 36.1213 25.702 34.4978C25.9734 35.5586 26.936 38.1368 30.0701 39.5742V41.0829H17.7585V39.5742C20.8923 38.1369 21.855 35.5589 22.1265 34.4979C17.4641 36.121 12.2117 34.0104 10.0308 29.4558C9.15734 27.6342 8.86921 25.6172 9.19599 23.6231C9.21784 23.4894 9.2423 23.3569 9.27057 23.2257C9.50221 22.0883 9.92924 21.0143 10.5338 20.0404C10.9057 19.4397 11.3443 18.8763 11.846 18.3591L23.914 5.93481L35.9833 18.3591C36.4837 18.8762 36.9237 19.4397 37.2954 20.0404C37.8987 21.0143 38.3271 22.0884 38.5587 23.2257C38.5871 23.3569 38.6115 23.4894 38.6334 23.6232Z"
+                fill="#EFC734"
+              ></path>
+              <path
+                d="M34.3488 30.1532V26.6302L32.524 24.8054L34.3488 22.9806V19.4582C34.3488 18.7095 34.9912 18.0978 35.7392 18.0978L33.0327 15.3261C33.0327 16.0748 32.3864 16.7465 31.6383 16.7465H16.1975C15.4488 16.7465 14.837 16.0415 14.837 15.2935L12.1305 18.0652C12.8792 18.0652 13.4857 18.7095 13.4857 19.4576V30.1526C13.4857 30.9013 12.0959 31.5 11.3479 31.5C11.3479 31.5 11.8747 32.2174 12.9457 33.0326C13.9311 33.7826 14.8696 34.1739 14.8696 34.1739C14.8696 33.4252 15.4488 32.8637 16.1968 32.8637H31.6377C32.3864 32.8637 32.9675 33.4258 32.9675 34.1739C32.9675 34.1739 34.0442 33.6848 34.8262 33.0978C35.8044 32.3635 36.3914 31.5978 36.3914 31.5978C35.6433 31.5985 34.3488 30.9019 34.3488 30.1532ZM31.6377 21.8582L30.0457 23.4502H23.8566V26.1613H30.0457L31.6377 27.7532V30.1532H16.1975V26.1613H25.5653V23.4502H16.1975V19.4582H31.6377V21.8582Z"
+                fill="#C9362A"
+              ></path>
+            </svg>
+
+            <span class="text-logo">百家乐赌场</span>
+          </span>
+        </a>
+        <div style="display: flex; gap: 0px 25px">
+          <span class="link-header">
+            <a href="https://bajialeduchang.com/baccarat-calculator/">
+              百家樂期望值</a
+            ></span
+          >
+          <span class="link-header">
+            <a href="https://bajialeduchang.com/glossary/"> 术语表</a></span
+          >
+          <span class="link-header">
+            <a href="https://bajialeduchang.com/side-bets/"> 边注指南</a></span
+          >
+          <span class="link-header">
+            <a href="https://bajialeduchang.com/how-to-play-baccarat/">
+              如何玩百家乐</a
+            ></span
+          >
+        </div>
+        <div class="languages">
+          <a href="#" class="shadow-link">
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAATlBMVEXnAADrBATiAADYAAD5zMz6+Pj5uLj1iIj2paXyamrwYmLuWFjsTk7KAADzc3PrQUHpNTboKSn57+/z5eTlHR37/Pv39/fz8/Pf0tLo3Nwkc6NhAAAAW0lEQVR4AV3HA5IEQAAEsPTM+db//+PatiqlhNgrEIiPJPsSV/GZn8VnXf6cv9sVzeb2Zzm7vPJh0tj6qbeL72+bc1VZl/QqDLoEUryc8nbldNjvgfSCL+yzhwMIVBWHVQKs/AAAAABJRU5ErkJggg=="
+              alt=""
+            />
+            <img src="./images/icons8-шеврон-вниз-12.png" alt="" />
+          </a>
+
+          <div class="modal-lenguages">
+            <ul>
+              <li>
+                <a href="https://bajialeduchang.com/zh-ca/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAXVBMVEXUAADlQgDLAADBAADtgXn63Xjypnf1wHHpcG/oZmbmXVzlU1PjS0q1AAD981775VvwnVD2zkvhPz/fNzfdMjHcKyvaJyfsi0baISHYGhqqAADWExPTDQ2jAACfAAApGpDBAAAAWklEQVR4ATXIhQHDQBTDUMll2n/RMiU5/vQsAE4EsPbaKVOU+pXNwc/WKQXeDZMKu+psCXw/Z7efarmENd6GIwGpXhUvM4spxoiEbouRNT7Fmtaq+RG4wAqZZvceD8DeIelqAAAAAElFTkSuQmCC"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-au/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-de/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAh1BMVEXpTFTwNj7rHiTz8/Pv7u7XAgLuKTP4o6f0l5n9/f327e36+vv39/fnaGvtbnPIAAD1jpPwgIPoe4H19fXhPUDwdXfy0NHtY2XoXmLowcLsvr/fREu+AADwiIzy8vLeLzT1mp/qWFjcJSrgUVeyAADs4+PYGx7kBgjprazr6+umAADPz8/ExMQoJmQzAAAAiElEQVR4ASWJRULDUBCGv5l4gm9wVtj9jwNt37LuEveM/Cq0K/TTs7hDMBT9u4EkqNunq2u1AZtrpJ35/Wtpq9M6jev4XGevUQqiH/uyfLDj4JjGH6UtyoyA9Wpmbp+wAf3ybZEg/v1V84WVoFyngbd7KcvWGxtXwVoBxvDPyzlFHAjfAAEqoAEThSiV/9sl/gAAAABJRU5ErkJggg=="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-sg/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAtFBMVEXAdIWHf6gAKI+NIUCRHz51OWgACXMAAF1HYqIAAE4AAEAAADRJS43kxszj4+veqbDt2d2ntNJyh7pnfbTHz+FbcqvOBwfhjZDlfn/lbm7dZGZQaKexutUwT5hTb6yPMVPkur/xp6W0gpmeqco8WZ1tg7YAACl7irrozdLKiZagutylkK26w9mQnMEAAB1qQnVZereLdp5Ka62biapBXZ8pSZN3jr42VJqVpccZO4gAAA8AAAIF8g6vAAAAmUlEQVR4AR1HU4IFQQysdAbJrO3v5f0Ps3q27c6gXATK4HkXEYpJx5nhOYtMh2AZJJTBQLtocKRES6eq5sVLJLggi5/4PrRjDZFALxfn6/2Jk/BERKZy0ejc/1z0wePn6u6oM70bv6yOH/n2wIFiNpt8ja+a92Dn1aGHw/ap+GYYg6P76dtku1lY+Xb9m5w5UgLhSYBjwByQApiiN1ociSrgAAAAAElFTkSuQmCC"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-my/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAt1BMVEWSmb66z+18msdig8La3u+tYX9IaLc7W7BagbmcUW+kqMr/q6n+//+hsNv/lIr/jIGMnNLJyOP9/fyQttT/wb3/////aWn+YWF5kNT0oqz0i4ueqtIZNJjhvt/8gn//WVr/6+rN1+o9RKZwgcMPJpX/VFT9UEn+RUX8Ozv2Ly+FGzdYZrfU1e/8LS/lQkG/mbVUX60AE231hHtcdMb0mp3qYFTFwNu3w9prcqSURGNDaaIUMX5FNW5wYt7AAAAAjklEQVR4AR3HNUJEMQCGwf+L8RR36ajR+1+CEuvRdd8kK9MNAiRQNgJmVDAt1yM6kSzYVJUsPNssAk5N7ZFKjVNFAY4co6TAOI+kyQm+LFUEBEKKzuWUNB7rSH/rSnvOulOGk+QlXTBqMIrfYX4tSe2nP3iRa/KNK7uTmWJ5a9+erZ3d+18od4ytiZdvZyuKWy8o3UpTVAAAAABJRU5ErkJggg=="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-ph/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAABLElEQVR4AY2QgUZEQRSGz9ydmzbYkBWABBJYABHEFhJ6m0WP0DMEQNIr9AKrN8ne2Tt3Zs7MOdOZmRBEv+v34Tvub9R6fdNlAzU+snSME/wdjbjbbJ6EiEg6BA8102QbjKNpoMzw8v6qD/sOALbbT2MC1NgaAWOKOgxf5czY+4dbAX2G/THzcozLrvPV85IQyqVz0rvg2p9Pei4HjzSsiFbV4JgyhhxCjpGdZ0RhdikLB9/b8Qig7MkpSovR7Cp59q6CazaNFiTt4J82o6uvdMVwTsztKTXZod4jgOJJuqNAjFyGrBR8gM6XwKfIC4KanBSTZ0rClKh08D9DFh3egW7ebH7NcRDQWrz9rM2Ne+mDOXB2mZJ8agL19nwxR2iZXGm1gDbQKhDjd4yHb2oW/KR8xHicAAAAAElFTkSuQmCC"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-br/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAilBMVEUAAMYNB5rErh8JBJjJAADZAADRAADy6Jy2sLjh2KOTkNFsbOL78fL57u7r1NSHd0nm3Inz5Xze0oVGRt3jTlXoTEzmQUHiNjmhm7fo23736uz36Ojz5ebjxMT16pZ8esdyb747O9rfQkvjLi64AADrb3PgIiLdFhb34ODnuLjuw8PgrKzapKPYn5/48ErUAAAAdElEQVR4ASyKJYLDAADAkjK38vjmBv9/0vSYGWVAFM8QCXJBk6dSQNB2Z/YU8lhnAXQBGSRxEsdx+mn4vWyWNLpCqkUrRYY0HK8IGEXfUxrWVKuKkFnj9xyEWgTQuDdDfGRhVjsYPzrvgdoRcIXgNiAFFgQA7TwVdsLcLHgAAAAASUVORK5CYII="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-vn/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAABHUlEQVR4AXXQAUQDURzH8T8MgBEwDcAMcAsVjINDsAVgAywmIFkEBAWcBBXCBEW50iQiKASBlkEwYrM4R/Xo7t7b+t299ndZmw+8//7fe+7IcQ6JbKKthI2x1Vh1bCkyGs257kuz+dpoPLJ6/UGrVO60UukGokCIgVIhtFpv/IdlXUOxeLW4cFEonOfzp4AJ0TyJLxEHHaX67XYfj/93O5s9Ns1LDjpSrkm1gwZHNJPbgEkciMFweKvUspTV+J4Q8Yl9sG5sQ212k+FI+CVvkNLD0d+3hWGIXC6SycBnOg0Y9nSAPf0OwfOTX1uZ3Oagi4C/UnDmfJvmtO2PVArDKPC8mfD9Ptjd88tlhlLHDNu/gTiyUINLxHoJ3b9+AMkyBDRPDT5NAAAAAElFTkSuQmCC"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-hk/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAn1BMVEUAYQAAWwAAUgAARwAAOgAALgAAIwB/voB4uni242pttG1kr2Rdq11RpFEAGAD9/Uv8/VT690U/mz83lTguki4ADQCp2lJ3d+Q+dfpkaun47zii1B9IoEhgslHOy6fZ5virw/Iubfhsc6v29iMfih+Wy3Nbg+lzm/m61vd+oNr08hZ2uDcAAQCPlLSuraIzmA8yjzKw3z8nXvcTgxM1pTDYD/UeAAAAfUlEQVR4AUWIA3oFMBCE/4mT2nbvf6biQ91n27tjAaDNi7gaFuLAIexiUDc6QKUfhKaVva5Dh/Xu3rwrqYPTzfeYVNvrRvUiUUbvO5hIVR0f8f7TYCo797+6POgOqtm9n8nGQ1qP/395v7cHw4FsQohnXhE3DOSQSETOmN8EHiUfBxs2q7sAAAAASUVORK5CYII="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-tw/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAATlBMVEX+AAD2AADvAQH/eXn+cXL9amr8YmL9Wlr8UlL7TkvoAAD8d0f6Pz/3ODf2Ly/0KSf6R0f6wTv60T31IBz6+jr4+Cv3QybzEhL4bizhAADgATv8AAAAW0lEQVR4AQXBgU3DQBRAMb+7jwKVUPefkQEQTYJqByBENpKUGoZslXoN5LPONH8G9WWZ7pGlOn6XZmaGRce1J/seei4dl+7dPWDqkk7+58e3+igdlySPcYbwBG+lPhCjrtt9EgAAAABJRU5ErkJggg=="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-in/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAS1BMVEXqAADjAADZAAD2e3v0dXXzbGzyYWHxWFjyUlLuSkrQAAD5jY76m5zsPz/qNTXnKir56en6w8PmGxvKAAD5z9D6qqvjDw/32dnCAADqlhvuAAAAYElEQVR4AQXBUU6DUBRAwTm8SwqJ+9+m8cva0uBMgBBkkUiqYSWrkpeNxL6/76w5R/L1WZ9jXoONqvs5fWeyrGWux9i3Na5ji3Ftfv/uIZtG+8/78TxA7Skj4qxwcNrBPxiAEpMq30QZAAAAAElFTkSuQmCC"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-jp/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAVFBMVEUAILQAGrEAEazhAAD5AADwAACBot+5ued2mNv6aWv7X1/5UVHoAACWltz5+fz+/v5ahNPyRkv5QkL5OTn2MTH3Kir1JiZOe87rOkb1Hh70FRXyDQ3JFHMOAAAAU0lEQVR4AQXBgQ3CMBAAMV8+Iuy/LKhUgB0kRchDfksRbU59R1Xd14If51QNK3Ndc6im7Hg63DVhr/kct2pSr8WRahIWUk1i2XrHo7tYbB8IL/AHd28PeH6kKkoAAAAASUVORK5CYII="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-es/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAjVBMVEX/vwD5tADyqQDrnAD95Hr74XP53mr932D83Vj72k7610P61TT30Cn+7aX954zXzpalrbmiq7bnsgD8/Pz9/v6bq9bIzeT29/f09PXk5ea9wt2Bj8OKn8+ElssAcwCIxIhnsmdfrF9XqFdQpFBEn0Q5mDoAIgAAbwCAv4AAGQAAZQB1uHUAVwAARAAANACRhc+AAAAAVElEQVR4AQXBAU4CQRRAsb6db7Jg9P4XlRAIs7YBRCiDJMlrWIkkW99HqPZD9u+cuTh0naLJBV/1Dg6gZQfmXpQknzluN0oS1qx9Lv5IyhjyE08W/yjQDpdmVRfaAAAAAElFTkSuQmCC"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-fr/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAPFBMVEX09PTy8fHy6+vm5+b+/v77+/v29vbf39/5vLz5fHz6qqr6UFD7QUH5NDT3lZXa2tr419f3JibT09P2WloskN4YAAAAVUlEQVR4AQXBQU7FMBBAMb90hCoW3P+csCAKfIodIBIyQJAGmPQTDHgrzca94K/keT/nWOgjmdm4VvIpwy1GXOsZ9ndYYL/Wee3IRI/fr4PQCuPmAv/RTRUh24Q4UgAAAABJRU5ErkJggg=="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-fr/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAflBMVEX/AAD9AAD3AADxAADrAAD/eXn9bGz8YWH8WVn6UVH5SEj5Pz/3NDT0Kir9/QD+/nL+/lT18lDt4Uf6+j/39zD39yf19R3n5wDxflXsZ1Pt4Y3x8zr0wbLs1NXz8xPj4wD37t3jmkvsUU/Bz6nrykm3vJ72IiL0FBTyDAvhAABEt4UZAAAAX0lEQVR4AQXBQUrFQBBAwXqTDkYE94Jb73+qfwVRcYxVQRBRToiUfoaVpGTrtdS9SO0Z9FR9lVy/g5c99+dKl30N5uxPuviexXEc9/msC7TOkd4kHu/Dlh4itCJ8AP4B0w4Qwmm7CFQAAAAASUVORK5CYII="
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://bajialeduchang.com/zh-fr/">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAbFBMVEVzldTg4ODS0tLxDwDtAwDjAADD0uz39/fy8vL3k4nzgna4yOixwuXu7u7s6+zn5+fyd2rvcGPtZljYAABrjNCpvOHrWkxegsqfs93NAADpUUFRd8THAABBa7wnVbERRKa8vLyxsLCoqKigoKClCvcsAAAAXklEQVR4AS3JxUEAQQAEwZo13Mk/R9w5/7UERJCIGIgj5qfRJZEpPyNfCgJTjMR1eRRnJiExFJz5Mf1PokWr/UztIjRGQ3V486u0HO55m634U6dMcf0RNPfkVCTvKjO16xHA8miowAAAAABJRU5ErkJggg=="
+                    alt=""
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="main-wrapper">
+          <div class="bread-crumbs">
+            <a href="" class="link-a">Home</a>
+            <span> > 新加坡百家乐：2024年华人玩家最佳在线赌场推荐</span>
+          </div>
+          <h1 class="main-title">
+            新加坡百家乐：2024年华人玩家最佳在线赌场推荐
+          </h1>
+          <span
+            style="
+              color: black;
+              margin-top: 10px;
+              display: inline-block;
+              font-size: 16px;
+            "
+            >目录</span
+          >
+          <div class="two-columns">
+            <ul class="menu-columns-list">
+              <li class="columns-link">
+                <a href="#one" class="columns-link"
+                  >新加坡最好的加密赌场百家乐</a
+                >
+              </li>
+              <li class="columns-link">
+                <a href="#two" class="columns-link"
+                  >如何选择最适合您的加密赌场？</a
+                >
+              </li>
+              <!-- <li class="columns-link">
+                <a href="" class="columns-link">如何选择最适合您的加密赌场？</a>
+              </li> -->
+              <li class="columns-link">
+                <a href="#three" class="columns-link"
+                  >Bajialeduchang.com 如何评价在线百家乐赌场</a
+                >
+              </li>
+              <li class="columns-link another-list">
+                <a href="#four" class="columns-link">许可和监管</a>
+              </li>
+              <li class="columns-link another-list">
+                <a href="#five" class="columns-link">付款方式</a>
+              </li>
+              <li class="columns-link">
+                <a href="#six" class="columns-link">百家乐的历史</a>
+              </li>
+              <li class="columns-link">
+                <a href="#six" class="columns-link">新加坡的负责任博彩</a>
+              </li>
+              <li class="columns-link another-list">
+                <a href="#seven" class="columns-link"
+                  >促进负责任博彩的主要组织</a
+                >
+              </li>
+              <li class="columns-link sqea-links">
+                <a href="#eight" class="columns-link">新加坡博彩公司</a>
+              </li>
+              <li class="columns-link sqea-links">
+                <a href="#eight" class="columns-link">新加坡赛马公会</a>
+              </li>
+              <li class="columns-link sqea-links">
+                <a href="#eight" class="columns-link">滨海湾金沙</a>
+              </li>
+              <li class="columns-link another-list">
+                <a href="#eight" class="columns-link">负责任赌博措施</a>
+              </li>
+              <li class="columns-link another-list">
+                <a href="#nine" class="columns-link">问题赌博的迹象</a>
+              </li>
+              <li class="columns-link">
+                <a href="#ten" class="columns-link">最后的想法</a>
+              </li>
+              <li class="big-text">新加坡最好的加密赌场百家乐</li>
+            </ul>
+            <div class="right-block">
+              <div class="text-img">
+                <img
+                  src="https://secure.gravatar.com/avatar/b2a7b0f966d6d6f0c7140a8b76b1f04b?s=48&d=mm&r=g"
+                  alt=""
+                />
+                <span>Simon Zhān 22 11 月, 2024</span>
+              </div>
+              <p
+                class="right-block-paragraph"
+                style="
+                  color: black;
+                  font-size: 18px;
+                  line-height: 30px;
+                  font-weight: 300;
+                  margin-bottom: 20px;
+                "
+              >
+                欢迎来到
+                <span style="font-weight: 400">Bajialeduchang.com</span
+                >，这是您为新加坡华人赌徒量身定制的在线和真人新加坡百家樂的首选目的地。随着游戏世界中加密货币的兴起，玩家现在可以在玩他们最喜欢的新加坡百家樂时享受增强的隐私和安全。
+                在此页面，您将找到新加坡百家乐，助您赢得财富。
+              </p>
+              <p
+                class="right-block-paragraph"
+                style="
+                  color: black;
+                  font-size: 18px;
+                  line-height: 30px;
+                  font-weight: 300;
+                  margin-bottom: 20px;
+                "
+              >
+                今天就加入我们，体验前所未有的在线新加坡百家樂的刺激吧！
+              </p>
+              <p
+                class="right-block-paragraph"
+                style="
+                  color: black;
+                  font-size: 18px;
+                  line-height: 30px;
+                  font-weight: 300;
+                  margin-bottom: 20px;
+                "
+              >
+                现在就开始玩吧！
+              </p>
+
+              <table
+                style="
+                  width: 100%;
+                  border-collapse: collapse;
+                  border: 1px solid #c3c0c0;
+                  text-align: left;
+                  color: black;
+                "
+              >
+                <tbody>
+                  <tr style="border: 1px solid black">
+                    <td
+                      rowspan="3"
+                      style="padding: 8px; width: 50%; line-height: 30px"
+                    >
+                      在百家乐赌场中测试您的运气！顶尖 <br />
+                      在线赌场，畅享百家乐的乐趣提供多 <br />
+                      种语言的真人庄家高额的存取款限制 <br />
+                      马上开始游戏！
+                    </td>
+                    <td style="border: 1px solid black; padding: 10px">
+                      选择并以试玩模式体验百家乐
+                    </td>
+                  </tr>
+                  <tr style="border: 1px solid black">
+                    <td style="border: 1px solid black; padding: 10px">
+                      掌握百家乐的技巧和策略
+                    </td>
+                  </tr>
+
+                  <tr style="border: 1px solid black">
+                    <td style="border: 1px solid black; padding: 10px">
+                      多样化的真人庄家百家乐游戏等您来玩
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="color-line-wrapper">
+          <h2 class="color-line-title">BitStarz</h2>
+          <div class="color-line orange" id="one">
+            <a
+              target="_blank"
+              href="https://www.bitstarz.com/zh-CN"
+              class="color-link"
+              >领取欢迎奖金，现在就行动！</a
+            >
+          </div>
+        </div>
+        <div class="color-line-wrapper">
+          <h2 class="color-line-title">20Bet</h2>
+          <div class="color-line red">
+            <a
+              target="_blank"
+              href="https://20bet.asia/sg?show=register&btag=674899_227376c2169741c09714a9413b851985"
+              class="color-link"
+              >立即领取丰厚欢迎礼包，精彩不停！</a
+            >
+          </div>
+        </div>
+        <div class="many-text-wrapper">
+          <p class="many-text-paragraph">
+            在当今数字时代，加密货币已经成为越来越多玩家青睐的支付方式，而
+            <span style="font-weight: 600"> 新加坡最好的加密赌场百家乐 </span>
+            则为玩家提供了无与伦比的游戏体验。不仅兼顾了安全性和便利性，还让玩家能够享受到传统百家乐与现代支付方式相结合的乐趣。
+          </p>
+          <h4 class="many-text-title">为什么选择加密赌场百家乐？</h4>
+          <p class="many-text-paragraph">
+            加密赌场为玩家提供了许多传统赌场无法比拟的优势，例如：
+          </p>
+          <ol style="margin-top: 50px" id="two">
+            <li class="number-list">
+              <span style="font-weight: 600">快速支付：</span>
+              使用加密货币进行存款和提款，速度更快，通常几分钟内即可完成交易。
+            </li>
+            <li class="number-list">
+              <span style="font-weight: 600">隐私保护：</span>
+              加密货币交易无需提供个人银行信息，保障玩家隐私。
+            </li>
+            <li class="number-list">
+              <span style="font-weight: 600">全球访问：</span>
+              不受地域限制，无论您身处何地，都可以轻松进入新加坡的加密赌场。
+            </li>
+          </ol>
+          <h5 style="font-weight: 600; margin: 30px 0; font-size: 26px">
+            新加坡百家乐：体验无与伦比的经典游戏
+          </h5>
+          <p class="many-text-paragraph">
+            在这些加密赌场中，您可以尽情体验新加坡百家乐的魅力。这些平台通常提供高质量的游戏界面、专业荷官以及多种投注选项，让您仿佛置身于真实的赌场。同时，许多加密赌场还为玩家提供实时直播功能，增加游戏的真实性和互动性。
+          </p>
+          <h4 class="many-text-title">如何选择最适合您的加密赌场？</h4>
+          <p class="many-text-paragraph">
+            以下几点可以帮助您找到适合自己的加密赌场：
+          </p>
+          <ol style="margin-top: 50px">
+            <li class="number-list">
+              <span style="font-weight: 600"> 安全性：</span>
+              确保赌场平台采用了顶级加密技术。
+            </li>
+            <li class="number-list">
+              <span style="font-weight: 600">游戏种类：</span>
+              除了百家乐，查看是否有其他游戏供您选择。
+            </li>
+            <li class="number-list">
+              <span style="font-weight: 600">客户服务：</span>
+              优质的客服团队是判断平台可靠性的重要标准。
+            </li>
+            <li class="number-list">
+              <span style="font-weight: 600">优惠活动：</span>
+              寻找提供首存奖励或免费筹码的赌场，提升您的游戏体验。
+            </li>
+          </ol>
+          <p class="many-text-paragraph">
+            通过选择新加坡最好的加密赌场百家乐，您不仅可以享受高端的娱乐体验，还能体验现代科技带来的便捷与安全性。这是每一位百家乐爱好者不可错过的机会。
+          </p>
+          <h4 class="many-text-title">新加坡在线赌博的合法性</h4>
+          <p class="many-text-paragraph">
+            新加坡的在线赌博受到严格监管，以确保游戏环境安全可靠。2014
+            年颁布的《远程赌博法》（RGA）为远程赌博服务（包括在线赌场）建立了法律框架。根据该法律，只有新加坡博彩公司和新加坡赛马公会等持牌运营商才被允许提供在线赌博服务。
+          </p>
+          <h4 class="many-text-title">对中国赌徒的影响</h4>
+          <p class="many-text-paragraph">
+            新加坡的中国公民可以合法访问各种在线百家乐游戏。这种可访问性为他们提供了参与本国可能受到限制或非法的博彩活动的机会。RGA
+            确保这些玩家可以在受监管的环境中安全负责地赌博。
+          </p>
+          <h4 class="many-text-title">关键法律要点</h4>
+          <ul>
+            <li class="listt">
+              <span style="font-weight: 600"> 《远程赌博法》：</span> 2014
+              年颁布，禁止未经许可的在线赌博。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 持牌运营商：</span>
+              只有新加坡博彩公司和新加坡赛马公会可以合法运营在线赌博平台。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 处罚：</span>
+              未经授权的运营商将面临罚款和监禁等处罚。
+            </li>
+          </ul>
+          <p class="many-text-paragraph">
+            居住在新加坡的华裔赌徒有资格参与在线赌博活动，包括玩百家乐。这一法律框架使他们可以享受自己喜欢的游戏，而不必担心与非法赌博行为有关。
+          </p>
+          <h4 class="many-text-title">在线赌博统计数据</h4>
+          <p class="many-text-paragraph">
+            2023 年，合法的在线赌博市场创造了约 12 亿美元的收入。
+          </p>
+          <p class="many-text-paragraph">
+            自 RGA 推出以来，注册的在线赌徒数量激增了 30% 以上。
+          </p>
+          <p class="many-text-paragraph">
+            新加坡在线赌徒的平均年龄约为 35 岁，其中很大一部分是华裔。
+          </p>
+          <h4 class="many-text-title">在线赌博中使用加密货币的好处</h4>
+          <p class="many-text-paragraph">
+            加密货币彻底改变了在线赌博格局，提供了众多优势，增强了玩家的游戏体验。
+          </p>
+          <h4 class="many-text-title">去中心化和税收优势</h4>
+          <p class="many-text-paragraph">
+            加密货币在去中心化网络上运行，这意味着它们不受任何中央机构控制。这一特性增强了安全性并对税收产生了影响。在包括新加坡在内的许多司法管辖区，加密货币奖金不征税，因为它们被视为去中心化资产。与可能需要征税的传统赌博方式相比，这允许玩家保留更多的奖金。
+          </p>
+          <h4 class="many-text-title">可证明的公平游戏</h4>
+          <p class="many-text-paragraph">
+            许多接受加密货币的在线赌场都提供可证明的公平游戏系统。这项技术允许玩家独立验证每个游戏结果的公平性，增强对赌场诚信的信任并确保公平的游戏体验。
+          </p>
+          <h4 class="many-text-title">增强的隐私和匿名性</h4>
+          <p class="many-text-paragraph">
+            使用比特币和以太坊等加密货币的最重要好处之一是它们提供的隐私级别。传统的银行方法通常需要个人信息，这可能会让玩家面临身份盗窃或欺诈的风险。相比之下，加密货币交易通常是匿名的，允许玩家在不透露身份的情况下进行赌博。这种匿名性对新加坡的中国赌徒特别有吸引力，他们希望在享受在线百家乐的同时保持谨慎
+          </p>
+          <h4 class="many-text-title">交易速度和效率</h4>
+          <p class="many-text-paragraph">
+            加密货币交易几乎可以立即处理，消除了传统银行业务方法经常出现的延迟。玩家可以快速存款和取款，从而获得无缝的游戏体验。这种速度在快节奏的在线赌博环境中至关重要，因为每分每秒都很重要。
+          </p>
+          <h4 class="many-text-title">交易费用较低</h4>
+          <p class="many-text-paragraph">
+            与传统支付方式相比，使用加密货币通常会产生较低的交易费用。这种成本降低意味着玩家可以最大化他们的奖金，而不会损失很大一部分银行费用。节省的费用可能相当可观，尤其是对于经常赌博的人来说。
+          </p>
+          <h4 class="many-text-title">防范网络威胁</h4>
+          <p class="many-text-paragraph">
+            区块链技术强大的安全功能可确保加密货币交易加密且防篡改。这种安全级别可保护玩家的资金免受潜在的网络威胁，让玩家在网上赌博时高枕无忧。区块链的透明度还允许玩家独立验证交易，从而增强对游戏平台的信任。
+          </p>
+          <h4 class="many-text-title">全球可访问性</h4>
+          <p class="many-text-paragraph">
+            加密货币打破了地理障碍，使来自世界各地的玩家能够参与在线赌场，而不受传统银行系统的限制。这种包容性对于新加坡的中国赌徒尤其有利，因为他们可能会面临传统支付方式的限制
+          </p>
+          <h4 class="many-text-title">新加坡真人百家樂類型</h4>
+          <p class="many-text-paragraph">
+            在
+            Bajialeduchang.com，我们提供多种在线百家乐游戏，以满足每位玩家的喜好。
+          </p>
+          <h4 class="many-text-title">新版在線百家樂</h4>
+          <p class="many-text-paragraph margin">
+            新版在線百家樂融合了传统游戏的魅力与现代技术的创新，为玩家提供了无缝且沉浸式的游戏体验。随着线上博彩行业的快速发展，新版在線百家樂不仅在玩法上进行了优化，更在用户界面、游戏速度和安全性上做出了显著提升。通过高质量的图形和音效，玩家仿佛置身于真实的赌场之中。
+          </p>
+          <p class="many-text-paragraph margin">
+            这款游戏通常采用实时直播技术，玩家可以与真人荷官互动，享受更为真实的游戏氛围。新版在線百家樂还引入了多种游戏选项，包括经典百家樂、快速百家樂和各种特殊规则的变体，以满足不同玩家的需求。此外，游戏还支持多种语言和货币，方便全球玩家参与。
+          </p>
+          <p class="many-text-paragraph margin">
+            安全性方面，新版在線百家樂使用先进的加密技术，保障玩家的个人信息和资金安全。许多平台还提供多种支付选项，包括加密货币，确保交易的便利和隐私。此外，负责任的赌博措施也被纳入其中，帮助玩家管理他们的投注和游戏时间。
+          </p>
+          <p class="many-text-paragraph margin">
+            无论是新手还是资深玩家，新版在線百家樂都以其灵活的玩法、丰富的选择和出色的用户体验，吸引着越来越多的华人玩家加入游戏的行列。
+          </p>
+          <h4 class="many-text-title">Live Baccarat Squeeze 真人百家乐挤牌</h4>
+          <p class="many-text-paragraph">
+            在这个版本中，玩家可以享受充满悬念的“挤牌”功能，荷官以戏剧性的方式展示牌。超过
+            15
+            个高清摄像头可以捕捉到每个细节，在玩家等待牌张时增强游戏的刺激感。
+          </p>
+          <h4 class="many-text-title">
+            Live Baccarat Control Squeeze 真人百家乐控制挤牌
+          </h4>
+          <p class="many-text-paragraph">
+            这个游戏通过允许玩家自己控制挤牌，将玩家互动提升到一个新的水平。牌面朝下发牌，玩家可以按照自己的节奏展示牌，为传统游戏增添了个性化元素。
+          </p>
+          <h4 class="many-text-title">Speed Baccarat 极速百家乐</h4>
+          <p class="many-text-paragraph">
+            对于那些渴望快节奏动作的人来说，极速百家乐提供了较短的回合，每局仅持续
+            27 秒。此变体旨在提供快速下注机会和快速游戏，而不会牺牲刺激感。
+          </p>
+          <h4 class="many-text-title">Lightning Baccarat 闪电百家乐</h4>
+          <p class="many-text-paragraph">
+            这个创新版本引入了随机乘数，可以提高某些赌注的赢利。这些乘数的不可预测性为每一轮增加了额外的刺激，使其成为寻求刺激的人的最爱。
+          </p>
+          <h4 class="many-text-title">
+            XXXtreme Lightning Baccarat XXXtreme 闪电百家乐
+          </h4>
+          <p class="many-text-paragraph">
+            XXXtreme
+            闪电百家乐更进一步，具有更高的乘数和额外的投注选项，创造了一种令人振奋的游戏体验，让玩家坐立不安。
+          </p>
+          <h4 class="many-text-title">No Commission Baccarat 无佣金百家乐</h4>
+          <p class="many-text-paragraph">
+            在这个变体中，玩家可以享受对庄家的投注，而无需支付通常的佣金。这使得它对那些喜欢庄家投注同时最大化潜在支出的人更具吸引力。
+          </p>
+          <h4 class="many-text-title">Dual Play Baccarat 双人百家乐</h4>
+          <p class="many-text-paragraph">
+            这种独特的模式允许实体赌场的玩家和在线玩家同时参与同一场游戏。它结合了两全其美的优势，为所有参与者提供身临其境的体验。
+          </p>
+          <h4 class="many-text-title">Baccarat Multiplay 百家乐多人游戏</h4>
+          <p class="many-text-paragraph">
+            百家乐多人游戏使玩家可以同时在多个现场百家乐赌桌上下注。此功能非常适合那些希望通过分散赌注而不切换赌桌来最大限度地提高获胜机会的人。
+          </p>
+          <h4 class="many-text-title">Red Envelope 红包</h4>
+          <p class="many-text-paragraph">
+            一种文化主题变体，融合了中国传统习俗的元素，为那些欣赏游戏体验中的文化细微差别的玩家增添了引人入胜的乐趣。
+          </p>
+          <h4 class="many-text-title">Peek Baccarat 偷看百家乐</h4>
+          <p class="many-text-paragraph">
+            在偷看百家乐中，玩家可以选择在下注前偷看玩家或庄家手中的一张牌。这些附加信息可以影响投注策略并增强游戏性。
+          </p>
+          <h4 class="many-text-title">Golden Wealth Baccarat 黄金财富百家乐</h4>
+          <p class="many-text-paragraph">
+            这个视觉上令人惊叹的版本具有生动的图形和动画，庆祝财富和繁荣。游戏玩法忠于传统百家乐规则，同时提供引人入胜的美学体验。
+          </p>
+          <h4 class="many-text-title">Prosperity Tree Baccarat 兴旺树百家乐</h4>
+          <p class="many-text-paragraph">
+            另一款以文化为主题的游戏，融合了中国文化中兴旺和好运的象征。设计元素增强了整体游戏氛围。
+          </p>
+          <h4 class="many-text-title">Bac Bo 百家乐</h4>
+          <p class="many-text-paragraph">
+            百家乐是传统百家乐的独特变体，结合了百家乐和骰子游戏的元素。玩家根据骰子掷出的结果而不是牌值下注，为游戏带来了新鲜的活力。
+          </p>
+          <h4 class="many-text-title">First Person Baccarat 第一人称百家乐</h4>
+          <p class="many-text-paragraph">
+            这种身临其境的体验让玩家可以从第一人称视角参与百家乐。摄像机角度营造出一种亲密的感觉，仿佛玩家坐在真正的桌子旁。
+          </p>
+          <h4 class="many-text-title">
+            Emperor Golden Wealth Baccarat 帝王金财百家乐
+          </h4>
+          <p class="many-text-paragraph">
+            一种豪华的变体，将传统百家乐与高额投注选项相结合，吸引寻求精英游戏体验的豪赌客。
+          </p>
+          <h4 class="many-text-title">
+            First Person Golden Wealth Baccarat 第一人称金财百家乐
+          </h4>
+          <p class="many-text-paragraph">
+            与第一人称百家乐类似，但图形和功能增强，灵感来自财富主题。这种变体为玩家提供了一种独特的百家乐娱乐方式。
+          </p>
+          <p class="many-text-paragraph" style="margin: 25px 0">
+            每种百家乐变体都独具特色，确保每位玩家都能在 Bajialeduchang.com
+            找到适合自己风格和喜好的游戏。无论您喜欢传统游戏还是创新游戏，我们的选择都能满足您的需求！
+          </p>
+          <h4 class="many-text-title" id="three">
+            Bajialeduchang.com 如何评价在线百家乐赌场
+          </h4>
+          <p class="many-text-paragraph">
+            我们根据几个标准评估在线<a
+              target="_blank"
+              href="https://bajialeduchang.com/"
+              style="color: #4db2ec"
+              >百家乐赌场：</a
+            >
+          </p>
+          <h4 class="many-text-title">许可和监管</h4>
+          <p class="many-text-paragraph">
+            我们只推荐遵守当地法律并持有有效许可证的赌场。
+          </p>
+          <h4 class="many-text-title" id="four">游戏种类</h4>
+          <p class="many-text-paragraph">
+            我们评估可用的百家乐游戏范围，确保为用户提供多样性。
+          </p>
+          <h4 class="many-text-title">用户体验</h4>
+          <p class="many-text-paragraph">
+            网站设计、客户支持和移动兼容性等因素对于良好的游戏体验至关重要。
+          </p>
+          <h4 class="many-text-title">付款方式</h4>
+          <p class="many-text-paragraph">
+            我们优先考虑提供安全且多样化付款方式（包括加密货币）的赌场。
+          </p>
+          <h4 class="many-text-title" id="five">百家乐的历史</h4>
+          <p class="many-text-paragraph" style="margin: 25px 0">
+            一般来说，百家乐是一种纸牌游戏，其规则因版本而异。Baccarat Banque 和
+            Baccarat Chemin de fer
+            是两种高度依赖于玩家策略的变体。您的技能在每次发牌中都起着至关重要的作用。另一方面，Punto
+            Banco 是一种不涉及策略的游戏，因为没有可选的抽牌规则。
+          </p>
+          <p class="many-text-paragraph" style="margin: 25px 0" id="six">
+            虽然起源尚不清楚，但人们普遍认为百家乐的起源可以追溯到中世纪的意大利。
+          </p>
+          <p class="many-text-paragraph" style="margin: 25px 0" id="seven">
+            该游戏在 15
+            世纪左右与意大利开战时传到了法国。然而，花了几个世纪的时间，游戏才扎根。Chemin
+            De Fer 的变体主要与上层阶级有关，而 Punto Banco
+            则娱乐下层阶级。该游戏最终进入了英国和美国，被任何社会阶层的玩家所采用。
+          </p>
+          <p class="many-text-paragraph" style="margin: 25px 0">
+            在深入研究百家乐游戏后，我们发现了一些令人难以置信的发展。例如，007
+            是一款流行的纸牌游戏，它将地位提升到了一个全新的水平。这款游戏自问世以来就深受国王的喜爱，甚至在早期成为詹姆斯·邦德的最爱。如今，您可以在新加坡的各个在线赌场享受各种变体。
+          </p>
+          <h4 class="many-text-title">新加坡的负责任博彩</h4>
+          <p class="many-text-paragraph">
+            负责任博彩是新加坡的重点工作，旨在最大限度地减少与博彩相关的社会危害。各种组织和措施都已到位，以促进安全的博彩行为，并为受博彩相关问题影响的人们提供支持。
+          </p>
+          <h4 class="many-text-title">促进负责任博彩的主要组织</h4>
+          <h4 class="many-text-title">全国问题博彩委员会 (NCPG)</h4>
+          <p class="many-text-paragraph">
+            NCPG 成立于 2005 年 8 月 31
+            日，是社会和家庭发展部下属的一个法定委员会。它专注于提高公众对问题博彩的认识，并为寻求帮助的个人提供资源。
+          </p>
+          <h4 class="many-text-title">博彩监管局 (GRA)</h4>
+          <p class="many-text-paragraph">
+            GRA 负责监督新加坡博彩活动的监管，确保运营商遵守负责任博彩措施。
+          </p>
+          <h4 class="many-text-title">新加坡博彩公司</h4>
+          <p class="many-text-paragraph">
+            作为国有博彩运营商，新加坡博彩公司实施各种负责任博彩举措，并与 NCPG
+            合作，促进安全的博彩行为。
+          </p>
+          <h4 class="many-text-title" id="eight">新加坡赛马公会</h4>
+          <p class="many-text-paragraph">
+            该组织致力于负责任博彩，并与 NCPG
+            密切合作，教育顾客有关安全的博彩行为。
+          </p>
+          <h4 class="many-text-title">滨海湾金沙</h4>
+          <p class="many-text-paragraph">
+            赌场已制定了负责任赌博计划，包括员工培训和为寻求帮助的顾客提供支持。
+          </p>
+          <h4 class="many-text-title">负责任赌博措施</h4>
+          <p class="many-text-paragraph">
+            新加坡已实施多项措施来促进负责任赌博：
+          </p>
+          <ul>
+            <li class="listt">
+              <span style="font-weight: 600"> 预先承诺计划：</span>
+              这些计划允许顾客限制他们的赌博支出或赌博时间，帮助他们更有效地管理他们的活动。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 运营商强制性培训：</span>
+              赌博场所的员工接受培训，以识别问题赌博的迹象并协助可能需要帮助的顾客。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 负责任赌博材料：</span>
+              运营商必须在其场所提供有关负责任赌博实践的教育材料。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 援助计划：</span>
+              为表现出问题赌博迹象的顾客提供支持服务，包括咨询和转介服务。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 负责任赌博意识周 (RGAW)：</span>
+              一项年度活动，旨在教育公众了解负责任赌博的工具和做法。活动包括在各个赌博场所的路演、互动游戏和自我评估测验，以帮助顾客了解他们的投注行为。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 排除令：</span>
+              被认定为有问题赌博行为的个人可能会被发出排除令，阻止他们进入赌博场所或在线平台。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 家庭排除令：</span>
+              家庭成员可以代表赌博习惯对其产生负面影响的个人申请排除令。
+            </li>
+            <li class="listt">
+              <span style="font-weight: 600"> 社会保障：</span>
+              新加坡公民进入赌场的入场费、最低年龄要求和广告限制等措施确保弱势群体免受潜在伤害。
+            </li>
+          </ul>
+          <h4 class="many-text-title" id="nine">问题赌博的迹象</h4>
+          <p class="many-text-paragraph" style="margin-bottom: 25px">
+            识别问题赌博的迹象对于早期干预至关重要。一些常见指标包括：
+          </p>
+
+          <ul>
+            <li class="listt">不断思考或讨论赌博。</li>
+            <li class="listt">难以停止或控制赌博活动。</li>
+            <li class="listt">追逐损失或消费超出自己的能力。</li>
+            <li class="listt">试图减少或停止赌博时感到烦躁。</li>
+            <li class="listt">不参与赌博活动时经历情绪困扰。</li>
+          </ul>
+          <h4 class="many-text-title">最后的想法</h4>
+          <p class="many-text-paragraph">
+            在
+            Bajialeduchang.com，我们致力于为新加坡的华人赌徒提供卓越的在线百家乐体验。我们注重合法性、通过加密货币实现的安全性、多样化的游戏产品以及对负责任赌博的承诺，我们邀请您今天加入我们的社区。在家中舒适地体验百家乐的刺激！
+          </p>
+          <h3 class="blue-title">
+            新加坡在线赌场以公平著称。寻找那些提供较低百家乐佣金的赌场，并记住长期成功来自战略性投注，例如坚持押庄家。
+          </h3>
+          <p style="text-align: center; margin-bottom: 30px">Simon Zhān</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container" id="ten">
+        <span class="logo">
+          <svg
+            class=""
+            width="22"
+            height="22"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 48C20.7603 48 17.6171 47.3654 14.6579 46.1138C11.8 44.905 9.23335 43.1745 7.02942 40.9706C4.82548 38.7666 3.09504 36.2 1.88622 33.3421C0.634629 30.3829 0 27.2398 0 24C0 20.7603 0.634629 17.6171 1.88622 14.658C3.09504 11.8 4.82548 9.23341 7.02942 7.02947C9.23341 4.82548 11.8 3.09504 14.6579 1.88628C17.6171 0.634628 20.7603 0 24 0C27.2398 0 30.3829 0.634628 33.342 1.88628C36.2 3.0951 38.7666 4.82554 40.9706 7.02947C43.1745 9.23341 44.905 11.8 46.1138 14.658C47.3654 17.6171 48 20.7603 48 24C48 27.2398 47.3654 30.3829 46.1138 33.3421C44.905 36.2001 43.1745 38.7667 40.9706 40.9706C38.7666 43.1745 36.2 44.905 33.342 46.1138C30.3829 47.3654 27.2397 48 24 48Z"
+              fill="#EFC734"
+            ></path>
+            <path
+              d="M3.42124 24.0001C3.42124 23.68 3.42961 23.3618 3.44421 23.0453L1.26252 22.9895C1.24786 23.3247 1.23901 23.6614 1.23901 24.0001C1.23901 24.3389 1.24786 24.6754 1.26252 25.0106L3.44421 24.9549C3.42967 24.6385 3.42124 24.3202 3.42124 24.0001Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M23.9347 3.48667C24.2548 3.48667 24.573 3.49504 24.8895 3.50964L24.9453 1.32801C24.6101 1.31323 24.2734 1.30444 23.9347 1.30444C23.5959 1.30444 23.2593 1.31323 22.9241 1.32801L22.9798 3.50964C23.2964 3.49504 23.6145 3.48667 23.9347 3.48667Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M20.2201 3.8245L20.0017 1.64482C10.6195 3.28419 3.21875 10.6849 1.57944 20.0672L3.75911 20.2856C5.29069 11.9466 11.8812 5.35619 20.2201 3.8245Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M23.9347 5.17964C13.5405 5.17964 5.11429 13.6059 5.11429 24C5.11429 34.3943 13.5405 42.8204 23.9347 42.8204C34.3289 42.8204 42.7551 34.3943 42.7551 24C42.7551 13.6059 34.3288 5.17964 23.9347 5.17964Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M44.1102 20.2856L46.2899 20.0672C44.6506 10.6849 37.2499 3.28419 27.8676 1.64482L27.6492 3.8245C35.9881 5.35619 42.5786 11.9466 44.1102 20.2856Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M46.6068 22.9894L44.4251 23.0452C44.4397 23.3617 44.4481 23.68 44.4481 24C44.4481 24.3201 44.4397 24.6384 44.4251 24.9549L46.6068 25.0105C46.6215 24.6754 46.6303 24.3388 46.6303 24C46.6303 23.6614 46.6214 23.3247 46.6068 22.9894Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M23.9347 44.5135C23.6145 44.5135 23.2964 44.5051 22.9798 44.4905L22.9241 46.6721C23.2593 46.6868 23.5959 46.6957 23.9347 46.6957C24.2734 46.6957 24.6101 46.6868 24.9453 46.6721L24.8895 44.4905C24.573 44.5051 24.2547 44.5135 23.9347 44.5135Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M27.6492 44.1756L27.8676 46.3554C37.2498 44.7159 44.6506 37.3152 46.2899 27.933L44.1102 27.7146C42.5786 36.0536 35.9881 42.6439 27.6492 44.1756Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M3.75911 27.7146L1.57944 27.933C3.21875 37.3152 10.6195 44.7159 20.0017 46.3554L20.2201 44.1756C11.8812 42.6439 5.29069 36.0536 3.75911 27.7146Z"
+              fill="#C9362A"
+            ></path>
+            <path
+              d="M38.6334 23.6232C38.9589 25.6172 38.6707 27.6343 37.7985 29.4559C35.6176 34.0106 30.3638 36.1213 25.702 34.4978C25.9734 35.5586 26.936 38.1368 30.0701 39.5742V41.0829H17.7585V39.5742C20.8923 38.1369 21.855 35.5589 22.1265 34.4979C17.4641 36.121 12.2117 34.0104 10.0308 29.4558C9.15734 27.6342 8.86921 25.6172 9.19599 23.6231C9.21784 23.4894 9.2423 23.3569 9.27057 23.2257C9.50221 22.0883 9.92924 21.0143 10.5338 20.0404C10.9057 19.4397 11.3443 18.8763 11.846 18.3591L23.914 5.93481L35.9833 18.3591C36.4837 18.8762 36.9237 19.4397 37.2954 20.0404C37.8987 21.0143 38.3271 22.0884 38.5587 23.2257C38.5871 23.3569 38.6115 23.4894 38.6334 23.6232Z"
+              fill="#EFC734"
+            ></path>
+            <path
+              d="M34.3488 30.1532V26.6302L32.524 24.8054L34.3488 22.9806V19.4582C34.3488 18.7095 34.9912 18.0978 35.7392 18.0978L33.0327 15.3261C33.0327 16.0748 32.3864 16.7465 31.6383 16.7465H16.1975C15.4488 16.7465 14.837 16.0415 14.837 15.2935L12.1305 18.0652C12.8792 18.0652 13.4857 18.7095 13.4857 19.4576V30.1526C13.4857 30.9013 12.0959 31.5 11.3479 31.5C11.3479 31.5 11.8747 32.2174 12.9457 33.0326C13.9311 33.7826 14.8696 34.1739 14.8696 34.1739C14.8696 33.4252 15.4488 32.8637 16.1968 32.8637H31.6377C32.3864 32.8637 32.9675 33.4258 32.9675 34.1739C32.9675 34.1739 34.0442 33.6848 34.8262 33.0978C35.8044 32.3635 36.3914 31.5978 36.3914 31.5978C35.6433 31.5985 34.3488 30.9019 34.3488 30.1532ZM31.6377 21.8582L30.0457 23.4502H23.8566V26.1613H30.0457L31.6377 27.7532V30.1532H16.1975V26.1613H25.5653V23.4502H16.1975V19.4582H31.6377V21.8582Z"
+              fill="#C9362A"
+            ></path>
+          </svg>
+          <span class="text-logo">百家乐赌场</span>
+        </span>
+        <ul class="footer-navigation">
+          <li>
+            <a href="https://bajialeduchang.com/privacy-policy/"
+              >Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a href="https://bajialeduchang.com/terms-of-service/"
+              >Terms of Service</a
+            >
+          </li>
+          <li><a href="https://bajialeduchang.com/about-us/">About Us</a></li>
+          <li>
+            <a href="https://bajialeduchang.com/cookies-policy/"
+              >Cookies Policy</a
+            >
+          </li>
+          <li>
+            <a href="https://bajialeduchang.com/disclaimer/">Disclaimer</a>
+          </li>
+          <li>
+            <a href="https://bajialeduchang.com/responsible-gambling/"
+              >Responsible Gambling 赌博成瘾</a
+            >
+          </li>
+        </ul>
+        <div class="social-networks-container">
+          <a
+            target="_blank"
+            href="https://www.tiktok.com/@bajialeduchang?_t=8qbMDHh55Hi&_r=1"
+          >
+            <img
+              src="./images/tiktok_3938074.png"
+              alt=""
+              class="networks-images"
+          /></a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQHKH0KjAu70YQAAAZNVDSiQjSB1FuxodwKSebpkkSw6jFsTMBbw3I__PxfzT3gR6XhMduttPjvmd7rToPUVVyXQviJTSg8JESIMH5u04W0hRuKgobGD2zeyOLVN_-kd3NI4mkI=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsimon-zh%25C4%2581n%2F"
+            ><img
+              src="./images/linkedin_4096153.png"
+              alt=""
+              class="networks-images"
+          /></a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/bajialeduchang/profilecard/?igsh=YTA3YTloNGVncTFz"
+            ><img
+              src="./images/instagram_1400829.png"
+              alt=""
+              class="networks-images"
+          /></a>
+          <a target="_blank" href="https://www.youtube.com/@bajialeduchang"
+            ><img
+              src="./images/play_16550564.png"
+              alt=""
+              class="networks-images"
+          /></a>
+        </div>
+      </div>
+      <div class="last-block">
+        <span style="color: #666; font-size: 12px"
+          >百家乐赌场 (Bǎijiālè Dǔchǎng) - 版权所有 © 2024</span
+        >
+        <a href="mailto:simon.marphinski@gmail.com" style="color: white"
+          >simon.marphinski@gmail.com</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>
